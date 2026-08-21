@@ -1,0 +1,24 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^u-(.*)": "uview-plus/components/u-$1/u-$1.vue",
+      "^dreame-(.*)": "@/components/dreame-$1/dreame-$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/library/library",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "dreame-button"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "DREAME",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "backgroundColor": "#F6F6F6"
+  }
+}
