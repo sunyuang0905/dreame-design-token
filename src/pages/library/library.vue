@@ -2,6 +2,14 @@
   <view class="shell" :class="{ 'theme-dark': dark }">
     <view class="side">
       <text class="side__name">DREAME</text>
+      <view class="platform">
+        <view class="platform__item" :class="{ 'is-on': platform === 'vue' }" @click="platform = 'vue'">
+          <text class="platform__label">Vue</text>
+        </view>
+        <view class="platform__item" :class="{ 'is-on': platform === 'flutter' }" @click="platform = 'flutter'">
+          <text class="platform__label">Flutter</text>
+        </view>
+      </view>
       <view
         class="side__item"
         :class="{ 'is-on': section === 'button' }"
@@ -48,13 +56,20 @@
         <text class="page__name">Button</text>
 
         <text class="h">用法</text>
-        <view class="code">
+        <view v-if="platform === 'vue'" class="code">
           <text class="code__snip">&lt;dreame-button text="确定" @click="onOk" /&gt;</text>
           <text class="code__snip">&lt;dreame-button variant="secondary" text="取消" /&gt;</text>
           <text class="code__snip">&lt;dreame-button loading /&gt;</text>
           <text class="code__snip">&lt;dreame-button text="不可用" disabled /&gt;</text>
           <text class="code__meta">variant = primary | secondary，默认 primary</text>
           <text class="code__meta">size = s | m | l，默认 l（335×48）</text>
+        </view>
+        <view v-else class="code">
+          <text class="code__snip">DreameButton(text: '确定', onPressed: onOk)</text>
+          <text class="code__snip">DreameButton(variant: DreameButtonVariant.secondary, text: '取消')</text>
+          <text class="code__snip">DreameButton(text: '加载中', loading: true)</text>
+          <text class="code__meta">size = small | medium | large，默认 large（335×48）</text>
+          <text class="code__meta">原生 Widget，来自 packages/dreame_flutter</text>
         </view>
         <view class="demo">
           <text class="demo__cap">主按钮 / 次按钮</text>
@@ -85,12 +100,19 @@
         <text class="page__name">Input</text>
 
         <text class="h">用法</text>
-        <view class="code">
+        <view v-if="platform === 'vue'" class="code">
           <text class="code__snip">&lt;dreame-input v-model="text" placeholder="请输入" /&gt;</text>
           <text class="code__snip">&lt;dreame-input-password v-model="pwd" :visible="show" @toggle="onToggle" /&gt;</text>
           <text class="code__snip">&lt;dreame-input-otp v-model="code" /&gt;</text>
           <text class="code__snip">&lt;dreame-input-select :value="name" placeholder="请选择" @click="onOpen" /&gt;</text>
           <text class="code__meta">error 错误态 · disabled 禁用</text>
+        </view>
+        <view v-else class="code">
+          <text class="code__snip">DreameInput(controller: nameController, placeholder: '请输入')</text>
+          <text class="code__snip">DreamePasswordInput(controller: passwordController)</text>
+          <text class="code__snip">DreameOtpInput(controller: otpController)</text>
+          <text class="code__snip">DreameSelectInput(value: familyName, onTap: openFamilies)</text>
+          <text class="code__meta">enabled、errorText 与 Vue 的 disabled、error 语义一致</text>
         </view>
         <view class="demo">
           <text class="demo__cap">Text</text>
@@ -157,13 +179,18 @@
         <text class="page__name">Dialog</text>
 
         <text class="h">用法</text>
-        <view class="code">
+        <view v-if="platform === 'vue'" class="code">
           <text class="code__snip">&lt;dreame-dialog :show="show" title="弹窗标题" content="这是一些文本" @confirm="onOk" @cancel="onCancel" /&gt;</text>
           <text class="code__snip">&lt;dreame-dialog :show="show" :actions="1" confirmText="我知道了" /&gt;</text>
           <text class="code__snip">&lt;dreame-dialog :show="show" placement="bottom" /&gt;</text>
           <text class="code__meta">actions = 1 | 2 · buttonLayout = horizontal | vertical-style-1 | vertical-style-2</text>
           <text class="code__meta">placement = center | bottom（bottom 即 Sheet）· closeIcon · warning</text>
           <text class="code__meta">本页手机画框只给预览；业务里写 :show，蒙层铺满当前页</text>
+        </view>
+        <view v-else class="code">
+          <text class="code__snip">DreameDialog.show(context, dialog: const DreameDialog(title: '弹窗标题', content: '这是一些文本'))</text>
+          <text class="code__snip">DreameDialog.show(context, placement: DreameDialogPlacement.bottom, dialog: const DreameDialog(...))</text>
+          <text class="code__meta">center 使用原生 Dialog；bottom 使用 Modal Bottom Sheet</text>
         </view>
         <view class="demo">
           <text class="demo__cap">点一下打开</text>
@@ -203,11 +230,16 @@
         <text class="page__name">Step</text>
 
         <text class="h">用法</text>
-        <view class="code">
+        <view v-if="platform === 'vue'" class="code">
           <text class="code__snip">&lt;dreame-step-indicator :current="2" /&gt;</text>
           <text class="code__snip">&lt;dreame-step-indicator :steps="3" :current="1" /&gt;</text>
           <text class="code__meta">steps = 5 | 3，默认 5 · current 从 1 起</text>
           <text class="code__meta">适用于三步或五步流程进度展示</text>
+        </view>
+        <view v-else class="code">
+          <text class="code__snip">const DreameStepIndicator(current: 2)</text>
+          <text class="code__snip">const DreameStepIndicator(steps: 3, current: 1)</text>
+          <text class="code__meta">steps = 5 | 3，current 从 1 起并自动限制范围</text>
         </view>
         <view class="demo">
           <text class="demo__cap">点一下切换当前步</text>
@@ -241,11 +273,16 @@
         <text class="page__name">Toast</text>
 
         <text class="h">用法</text>
-        <view class="code">
+        <view v-if="platform === 'vue'" class="code">
           <text class="code__snip">&lt;dreame-toast :show="show" message="对方已接受分享" /&gt;</text>
           <text class="code__snip">showToast({ message: '对方已接受分享', position: 'bottom' })</text>
           <text class="code__meta">position = bottom | center，默认 bottom（贴在 Home Indicator 之上）</text>
           <text class="code__meta">适用于短时、无操作项的反馈信息</text>
+        </view>
+        <view v-else class="code">
+          <text class="code__snip">DreameToast.show(context, message: '对方已接受分享')</text>
+          <text class="code__snip">DreameToast.show(context, message: 'Message text', position: DreameToastPosition.center)</text>
+          <text class="code__meta">基于 ScaffoldMessenger，默认展示 2 秒</text>
         </view>
         <view class="demo">
           <text class="demo__cap">点一下弹出</text>
@@ -297,6 +334,7 @@ export default {
   data() {
     return {
       section: 'toast',
+      platform: 'vue',
       dark: false,
       stepFive: 1,
       stepThree: 1,
@@ -569,6 +607,36 @@ export default {
   color: var(--dreame-brand-default);
 }
 
+.platform {
+  display: flex;
+  padding: 3px;
+  margin-bottom: 16px;
+  border-radius: 9px;
+  background: var(--dreame-background-page);
+}
+
+.platform__item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 6px 4px;
+  border-radius: 7px;
+}
+
+.platform__item.is-on {
+  background: var(--dreame-background-card);
+}
+
+.platform__label {
+  font-size: 12px;
+  color: var(--dreame-text-tertiary);
+}
+
+.platform__item.is-on .platform__label {
+  color: var(--dreame-brand-default);
+  font-weight: 600;
+}
+
 .side__item {
   display: flex;
   align-items: center;
@@ -754,6 +822,11 @@ export default {
 
   .side__name {
     margin: 0 16px 0 0;
+  }
+
+  .platform {
+    width: 128px;
+    margin: 0 12px 0 0;
   }
 
   .side__item {

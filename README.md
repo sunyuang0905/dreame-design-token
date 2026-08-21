@@ -1,6 +1,6 @@
-# DREAME uni-app 组件
+# DREAME Vue / Flutter 组件
 
-面向 uni-app 的设计 Token 与基础组件示例，包含 H5 规格预览页。
+同一套设计 Token 下的 Vue/uni-app 与 Flutter 原生基础组件，包含 H5 规格预览页。
 
 ## 本地预览
 
@@ -11,9 +11,33 @@ npm install
 npm run dev:h5
 ```
 
-预览页包含 Button、Input、Dialog、Step、Toast，并支持明暗模式切换。
+预览页包含 Button、Input、Dialog、Step、Toast，支持 Vue / Flutter 用法切换和明暗模式切换。
 
-## 项目集成
+## Flutter 集成
+
+在 Flutter 项目的 `pubspec.yaml` 中引用仓库内 package：
+
+```yaml
+dependencies:
+  dreame_flutter:
+    git:
+      url: https://github.com/sunyuang0905/dreame-design-token.git
+      path: packages/dreame_flutter
+```
+
+```dart
+import 'package:dreame_flutter/dreame_flutter.dart';
+
+MaterialApp(
+  theme: DreameTheme.light(),
+  darkTheme: DreameTheme.dark(),
+  home: DreameButton(text: '确定', onPressed: onOk),
+);
+```
+
+Flutter 实现位于 `packages/dreame_flutter`，全部为 Dart 原生 Widget，不依赖 WebView。
+
+## Vue / uni-app 集成
 
 1. 将所需的 `src/components/dreame-*` 目录复制到项目的 `components/`
 2. 引入 `src/common/dreame/css-vars.scss`

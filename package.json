@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "tokens:css": "node src/common/dreame/generate-css-vars.mjs",
+    "tokens:flutter": "node packages/dreame_flutter/tool/generate_tokens.mjs",
+    "tokens": "npm run tokens:css && npm run tokens:flutter",
     "dev:h5": "uni",
     "dev:h5:ssr": "uni --ssr",
     "dev:mp-alipay": "uni -p mp-alipay",

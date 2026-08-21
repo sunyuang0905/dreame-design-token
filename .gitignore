@@ -13,6 +13,10 @@ dist
 *.local
 feishu-auth-qr.png
 unpackage
+packages/dreame_flutter/.dart_tool
+packages/dreame_flutter/build
+packages/dreame_flutter/pubspec.lock
+packages/dreame_flutter/.flutter-plugins*
 
 # Editor directories and files
 .idea
