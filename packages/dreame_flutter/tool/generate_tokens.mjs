@@ -46,9 +46,7 @@ function resolve(collection, path, mode, seen = new Set()) {
 }
 
 function dartName(path) {
-  const parts = path.split('.').map((part) =>
-    part.replace(/^-([0-9]+)/, 'negative $1').replace(/[^A-Za-z0-9]+/g, ' '),
-  )
+  const parts = path.split('.').map((part) => part.replace(/[^A-Za-z0-9]+/g, ' '))
   const words = parts.flatMap((part) => part.split(' ')).filter(Boolean)
   return words.map((word, index) => index === 0 ? word.toLowerCase() : word[0].toUpperCase() + word.slice(1)).join('')
 }

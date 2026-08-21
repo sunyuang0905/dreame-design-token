@@ -18,9 +18,9 @@
   },
   "$summary": {
     "collectionCount": 3,
-    "variableCount": 279,
+    "variableCount": 257,
     "counts": {
-      "Primitive": 139,
+      "Primitive": 117,
       "Semantic": 86,
       "Component": 54
     }
@@ -30,7 +30,7 @@
       "$modes": [
         "Value"
       ],
-      "$count": 139,
+      "$count": 117,
       "tokens": {
         "color": {
           "brand": {
@@ -252,17 +252,9 @@
               "$type": "color",
               "$value": "#0000000D"
             },
-            "6": {
-              "$type": "color",
-              "$value": "#0000000F"
-            },
             "8": {
               "$type": "color",
               "$value": "#00000014"
-            },
-            "10": {
-              "$type": "color",
-              "$value": "#0000001A"
             },
             "12": {
               "$type": "color",
@@ -271,10 +263,6 @@
             "16": {
               "$type": "color",
               "$value": "#00000029"
-            },
-            "24": {
-              "$type": "color",
-              "$value": "#0000003D"
             },
             "40": {
               "$type": "color",
@@ -440,94 +428,6 @@
           "full": {
             "$type": "float",
             "$value": 999
-          }
-        },
-        "shadow": {
-          "offset": {
-            "x": {
-              "0": {
-                "$type": "float",
-                "$value": 0
-              }
-            },
-            "y": {
-              "0": {
-                "$type": "float",
-                "$value": 0
-              },
-              "2": {
-                "$type": "float",
-                "$value": 2
-              },
-              "4": {
-                "$type": "float",
-                "$value": 4
-              },
-              "8": {
-                "$type": "float",
-                "$value": 8
-              },
-              "12": {
-                "$type": "float",
-                "$value": 12
-              }
-            }
-          },
-          "blur": {
-            "2": {
-              "$type": "float",
-              "$value": 2
-            },
-            "6": {
-              "$type": "float",
-              "$value": 6
-            },
-            "8": {
-              "$type": "float",
-              "$value": 8
-            },
-            "12": {
-              "$type": "float",
-              "$value": 12
-            },
-            "16": {
-              "$type": "float",
-              "$value": 16
-            },
-            "24": {
-              "$type": "float",
-              "$value": 24
-            },
-            "32": {
-              "$type": "float",
-              "$value": 32
-            },
-            "40": {
-              "$type": "float",
-              "$value": 40
-            }
-          },
-          "spread": {
-            "0": {
-              "$type": "float",
-              "$value": 0
-            },
-            "-2": {
-              "$type": "float",
-              "$value": -2
-            },
-            "-4": {
-              "$type": "float",
-              "$value": -4
-            },
-            "-8": {
-              "$type": "float",
-              "$value": -8
-            },
-            "-12": {
-              "$type": "float",
-              "$value": -12
-            }
           }
         },
         "font": {

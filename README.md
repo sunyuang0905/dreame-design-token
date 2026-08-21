@@ -104,10 +104,9 @@ import { DreameButton, DreameInput } from '@dreame/design-system-vue'
 - `src/common/dreame/dreame-design-tokens.json`：Token 数据源
 - `src/common/dreame/css-vars.scss`：运行时 CSS 变量
 - `src/common/dreame/generate-css-vars.mjs`：生成脚本
-- `docs/shadow-primitives.md`：Shadow Primitive 参数与 Effect Style 对照
 
 ```bash
-npm run tokens
+npm run tokens:css
 ```
 
 Token 引用层级为 `Component → Semantic → Primitive`。明暗模式通过 Semantic 层切换，组件变量名称保持一致。

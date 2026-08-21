@@ -10,10 +10,7 @@ const dir = dirname(fileURLToPath(import.meta.url))
 const json = JSON.parse(readFileSync(join(dir, 'dreame-design-tokens.json'), 'utf8'))
 
 function cssName(parts) {
-    return `--dreame-${parts.map((p) => {
-        const value = String(p).toLowerCase()
-        return value.startsWith('-') ? `negative-${value.slice(1)}` : value
-    }).join('-')}`
+    return `--dreame-${parts.map((p) => String(p).toLowerCase()).join('-')}`
 }
 
 function parseRef(value) {
@@ -47,7 +44,7 @@ function formatLiteral(path, node) {
     if (type === 'float' || typeof value === 'number') {
         const kind = path[0]
         const sub = path[1]
-        if (kind === 'space' || kind === 'radius' || kind === 'shadow' || (kind === 'font' && sub === 'size')) {
+        if (kind === 'space' || kind === 'radius' || (kind === 'font' && sub === 'size')) {
             return `${value}px`
         }
         return String(value)
