@@ -1,0 +1,29 @@
+{
+  "name": "@dreame/design-system-vue",
+  "version": "0.1.0",
+  "description": "DREAME Vue 3 / uni-app component package",
+  "type": "module",
+  "main": "./index.js",
+  "module": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./components/*": "./components/*/*.vue",
+    "./styles": "./styles/css-vars.scss",
+    "./tokens": "./tokens/dreame-design-tokens.json"
+  },
+  "files": [
+    "index.js",
+    "components",
+    "styles",
+    "tokens",
+    "assets",
+    "README.md"
+  ],
+  "sideEffects": [
+    "*.scss",
+    "*.vue"
+  ],
+  "peerDependencies": {
+    "vue": ">=3.4.0"
+  }
+}

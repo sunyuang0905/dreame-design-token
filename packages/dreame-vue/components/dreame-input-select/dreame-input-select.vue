@@ -11,6 +11,9 @@
 </template>
 
 <script>
+import chevronDisabledIcon from '../../assets/input/icon-chevron-disabled.svg';
+import chevronIcon from '../../assets/input/icon-chevron.svg';
+
 /**
  * dreame-input-select
  * 点击事件由外部 picker 或 sheet 接管。
@@ -45,8 +48,8 @@ export default {
         },
         chevronSrc() {
             return this.visualState === 'disabled'
-                ? '/static/input/icon-chevron-disabled.svg'
-                : '/static/input/icon-chevron.svg';
+                ? chevronDisabledIcon
+                : chevronIcon;
         },
         rootClass() {
             return ['is-' + this.visualState];

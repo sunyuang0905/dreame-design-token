@@ -37,15 +37,41 @@ MaterialApp(
 
 Flutter 实现位于 `packages/dreame_flutter`，全部为 Dart 原生 Widget，不依赖 WebView。
 
+## 包结构
+
+```text
+packages/
+├── dreame-vue/       # 一个 Vue/uni-app 包，包含全部 Vue 组件
+└── dreame_flutter/   # 一个 Flutter 包，包含全部 Flutter 组件
+```
+
+组件不会拆成多个小包。业务项目在对应技术端只引入一个包，后续通过 package version 统一升级。
+
 ## Vue / uni-app 集成
 
-1. 将所需的 `src/components/dreame-*` 目录复制到项目的 `components/`
-2. 引入 `src/common/dreame/css-vars.scss`
-3. 按组件需要复制 `src/static/` 中的图标资源
-4. 在 `pages.json` 配置 easycom：
+将 `packages/dreame-vue` 发布至团队 npm registry 后安装：
+
+```bash
+npm install @dreame/design-system-vue
+```
+
+```js
+import DreameDesignSystem from '@dreame/design-system-vue'
+import '@dreame/design-system-vue/styles'
+
+app.use(DreameDesignSystem)
+```
+
+也支持直接导入单个组件：
+
+```js
+import { DreameButton, DreameInput } from '@dreame/design-system-vue'
+```
+
+如果使用 uni-app easycom，可配置包内组件路径：
 
 ```json
-"^dreame-(.*)": "@/components/dreame-$1/dreame-$1.vue"
+"^dreame-(.*)": "@dreame/design-system-vue/components/dreame-$1"
 ```
 
 ```vue

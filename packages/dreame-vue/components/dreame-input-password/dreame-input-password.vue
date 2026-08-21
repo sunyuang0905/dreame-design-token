@@ -20,7 +20,7 @@
             >
                 <image
                     class="dreame-pw__glyph dreame-pw__glyph--clear"
-                    src="/static/input/icon-clear.svg"
+                    :src="clearIcon"
                     mode="aspectFit"
                 />
             </view>
@@ -37,6 +37,11 @@
 </template>
 
 <script>
+import clearIcon from '../../assets/input/icon-clear.svg';
+import passwordHideDisabledIcon from '../../assets/input/icon-password-hide-disabled.svg';
+import passwordHideIcon from '../../assets/input/icon-password-hide.svg';
+import passwordShowIcon from '../../assets/input/icon-password-show.svg';
+
 /**
  * dreame-input-password
  * 支持清除、显示与隐藏密码。
@@ -69,6 +74,9 @@ export default {
         },
     },
     computed: {
+        clearIcon() {
+            return clearIcon;
+        },
         current() {
             if (this.modelValue !== undefined) return this.modelValue;
             if (this.value !== undefined) return this.value;
@@ -94,11 +102,11 @@ export default {
         },
         eyeSrc() {
             if (this.visualState === 'disabled') {
-                return '/static/input/icon-password-hide-disabled.svg';
+                return passwordHideDisabledIcon;
             }
             return this.isVisible
-                ? '/static/input/icon-password-show.svg'
-                : '/static/input/icon-password-hide.svg';
+                ? passwordShowIcon
+                : passwordHideIcon;
         },
         eyeGlyphClass() {
             if (this.visualState === 'disabled') return 'dreame-pw__glyph--hide';

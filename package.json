@@ -4,7 +4,9 @@
   "scripts": {
     "tokens:css": "node src/common/dreame/generate-css-vars.mjs",
     "tokens:flutter": "node packages/dreame_flutter/tool/generate_tokens.mjs",
-    "tokens": "npm run tokens:css && npm run tokens:flutter",
+    "tokens:vue": "node packages/dreame-vue/tool/sync_tokens.mjs",
+    "tokens": "npm run tokens:css && npm run tokens:flutter && npm run tokens:vue",
+    "pack:vue": "npm pack ./packages/dreame-vue",
     "dev:h5": "uni",
     "dev:h5:ssr": "uni --ssr",
     "dev:mp-alipay": "uni -p mp-alipay",

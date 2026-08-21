@@ -2,8 +2,7 @@
   "easycom": {
     "autoscan": true,
     "custom": {
-      "^u-(.*)": "uview-plus/components/u-$1/u-$1.vue",
-      "^dreame-(.*)": "@/components/dreame-$1/dreame-$1.vue"
+      "^u-(.*)": "uview-plus/components/u-$1/u-$1.vue"
     }
   },
   "pages": [

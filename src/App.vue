@@ -8,7 +8,7 @@ export default {
 
 <style lang="scss">
 @import 'uview-plus/index.scss';
-@import '@/common/dreame/css-vars.scss';
+@import '../packages/dreame-vue/styles/css-vars.scss';
 
 page {
   background-color: var(--dreame-background-page);
